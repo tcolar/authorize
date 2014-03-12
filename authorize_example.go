@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestCapture(t *testing.T) {
+func AuthExample(t *testing.T) {
 	auth := AuthorizeNet{
 		Login:     "<YourLogin>",
 		Key:       "<YourKey>",
