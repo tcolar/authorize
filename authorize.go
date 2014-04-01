@@ -66,8 +66,8 @@ func (a AuthorizeNet) Authorize(card CardInfo, data AuthData, emailCustomer bool
 }
 
 // CapturePreauth: Captures a previously authorized card
-// An Empty ammount string means full ammount
-func (a AuthorizeNet) CapturePreauth(transactionId string, ammount string) (response AuthorizeResponse) {
+// An Empty amount string means full amount
+func (a AuthorizeNet) CapturePreauth(transactionId string, amount string) (response AuthorizeResponse) {
 	data := url.Values{
 		"x_login":      {a.Login},
 		"x_tran_key":   {a.Key},
@@ -79,8 +79,8 @@ func (a AuthorizeNet) CapturePreauth(transactionId string, ammount string) (resp
 		"x_type":       {PRIOR_AUTH_CAPTURE},
 		"x_trans_id":   {transactionId},
 	}
-	if len(ammount) > 0 {
-		data["x_amount"] = []string{ammount}
+	if len(amount) > 0 {
+		data["x_amount"] = []string{amount}
 	}
 	if a.TestMode {
 		data.Set("x_test_request", "TRUE")
