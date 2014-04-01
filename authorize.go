@@ -80,7 +80,7 @@ func (a AuthorizeNet) CapturePreauth(transactionId string, ammount string) (resp
 		"x_trans_id":   {transactionId},
 	}
 	if len(ammount) > 0 {
-		data["x_ammount"] = []string{ammount}
+		data["x_amount"] = []string{ammount}
 	}
 	if a.TestMode {
 		data.Set("x_test_request", "TRUE")
